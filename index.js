@@ -89,7 +89,8 @@ class AgsStream extends Readable {
 
     request(featureRequestOptions, (error, response, body) => {
       if (error) {
-        this.emit('error', new Error(error));
+        //this.emit('error', new Error(error));
+        callback(null,[]);
       } else {
         const geojsonFeatures = body.features.map(feature => terraformer.parse(feature));
         this.push(geojsonFeatures);
