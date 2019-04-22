@@ -88,7 +88,7 @@ class AgsStream extends Readable {
     };
 
     request(featureRequestOptions, (error, response, body) => {
-      if (error) {
+      if (error || !body.features) {
         //this.emit('error', new Error(error));
         callback(null,[]);
       } else {
